@@ -28,3 +28,24 @@ bedrockDataSource.grantPrincipal.addToPrincipalPolicy(
     
   })
 );
+
+bedrockDataSource.grantPrincipal.addToPrincipalPolicy(
+new PolicyStatement({
+  resources: [
+    "arn:aws:bedrock:us-east-1:*:inference-profile/global.anthropic.claude-sonnet-4-20250514-v1:0",
+    "arn:aws:bedrock:us-east-1::foundation-model/anthropic.claude-sonnet-4-20250514-v1:0",
+    "arn:aws:bedrock:::foundation-model/anthropic.claude-sonnet-4-20250514-v1:0"
+  ],
+    actions: ["bedrock:InvokeModel"],
+  })
+);
+
+bedrockDataSource.grantPrincipal.addToPrincipalPolicy(
+new PolicyStatement({
+  resources: ["*"],
+  actions: [
+    "aws-marketplace:ViewSubscriptions",
+    "aws-marketplace:Subscribe"
+  ],
+  })
+);

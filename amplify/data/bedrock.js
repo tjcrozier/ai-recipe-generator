@@ -6,7 +6,7 @@ export function request(ctx) {
   
     // Return the request configuration
     return {
-      resourcePath: `/model/anthropic.claude-3-7-sonnet-20250219-v1:0/invoke`,
+      resourcePath: `/model/anthropic.claude-sonnet-4-20250514-v1:0/invoke`,
       method: "POST",
       params: {
         headers: {
@@ -21,7 +21,7 @@ export function request(ctx) {
               content: [
                 {
                   type: "text",
-                  text: `\n\nHuman: ${prompt}\n\nAssistant:`,
+                  text: prompt,
                 },
               ],
             },
